@@ -1,0 +1,19 @@
+.gradient-linear-background(@direction, @primary_color, @secondary_color) {
+	background: @primary_color;
+	background: -moz-linear-gradient(@direction, @primary_color, @secondary_color);
+	background: -webkit-linear-gradient(@direction, @primary_color, @secondary_color);
+	background: linear-gradient(to @direction, @primary_color, @secondary_color);
+}
+
+.gradient-linear-text(@direction, @primary_color, @secondary_color) {
+	.gradient-linear-background(@direction, @primary_color, @secondary_color);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.ellipsis-on-text-overflow(@width:250px) {
+	width: @width;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

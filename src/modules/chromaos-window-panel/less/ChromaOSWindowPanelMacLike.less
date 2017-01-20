@@ -1,0 +1,51 @@
+@chromaos-window-panel-height: 35px;
+@chromaos-window-panel-border-radius: 8px;
+
+.chromaos-window-panel {
+	&-header {
+		&-actions-mac-like {
+			&-action {
+				width: 15px;
+				height: 15px;
+				top: 10px;
+				border-radius: 99px;
+				box-shadow: inset 0 0 1px @flat-ui-midnight-blue;
+				float: right;
+				margin-right: 10px;
+				margin-top: 10px;
+				font-size: 10px;
+				text-align: center;
+
+				&-icon {
+					display: none;
+					padding-top: 2px;
+					color: @flat-ui-black-hole;
+				}
+
+				&:hover {
+					cursor: pointer;
+				}
+
+				&:hover &-icon {
+					display: block;
+				}
+			}
+
+			&-close {
+				.gradient-linear-background(bottom, @flat-ui-alizarin 50%, @flat-ui-pomegranate 100%);
+			}
+
+			&-toggle-collapsed {
+				.gradient-linear-background(bottom, @flat-ui-peter-rives 50%, @flat-ui-belize-hole 100%);
+			}
+
+			&-toggle-minimized {
+				.gradient-linear-background(bottom, @flat-ui-emerald 50%, @flat-ui-nepheritis 100%);
+			}
+
+			&-toggle-full-screen {
+				.gradient-linear-background(bottom, @flat-ui-orange 50%, @flat-ui-carrot 100%);
+			}
+		}
+	}
+}

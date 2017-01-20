@@ -1,0 +1,145 @@
+@chromaos-window-panel-height: 35px;
+@chromaos-window-panel-app-icon-height: 25px;
+@chromaos-window-panel-border-radius: 8px;
+
+.chromaos-window-panel-wrapper {
+	position: fixed !important;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+
+	&-front {
+		z-index: 9999999;
+	}
+
+	&:not(&-front) {
+		opacity: 0.65;
+	}
+}
+
+.chromaos-window-panel {
+	// width: 450px;
+	// height: 350px;
+	height: 100%;
+	position: absolute;
+	left: 50px;
+	box-shadow: 0 0 5px @flat-ui-black-hole;
+	border-radius: @chromaos-window-panel-border-radius;
+
+	&:not(&.minimized) {
+		// Doing this this way because TOP needs to be removed.
+		top: 150px;
+	}
+
+	&:not(&.minimized) &-header {
+		&-title {
+			.ellipsis-on-text-overflow(~ "calc(100% - 120px)");
+		}
+	}
+
+	&.minimized {
+		height: ~"calc(@{chromaos-window-panel-height} - 10px)" !important;
+		bottom: 5px;
+		left: 0;
+		position: fixed;
+		width: 40px !important;
+		box-shadow: none;
+	}
+
+	&.minimized &-header {
+		box-shadow: none;
+		border-radius: @chromaos-window-panel-border-radius;
+		&-actions {
+			display: none;
+		}
+
+		&-app-icon {
+			display: block;
+		}
+	}
+
+	&.minimized &-content {
+		height: 0 !important;
+		padding: 0;
+		display: none;
+		top: auto;
+	}
+
+	&.collapsed {
+		height: @chromaos-window-panel-height !important;
+	}
+
+	&.collapsed &-content {
+		height: 0 !important;
+		padding: 0;
+		display: none;
+	}
+
+	&.full-screen {
+		width: ~"calc(100% - 10px)" !important;
+		position: fixed;
+		left: 5px;
+		top: 5px;
+		transition: all 200ms ease-out;
+
+		&:not(.collapsed) {
+			height: ~"calc(100% - 10px)" !important;
+		}
+	}
+
+	&.full-screen &-content {
+		display: block;
+	}
+
+	&-content {
+		z-index: 1;
+		background-color: fade(@flat-ui-clouds, 85%);
+		height: ~"calc(100% - 35px)";
+		width: 100%;
+		border-radius: 0 0 @chromaos-window-panel-border-radius @chromaos-window-panel-border-radius;
+		padding: 10px;
+		overflow: auto;
+	}
+
+	&-header {
+		height: @chromaos-window-panel-height;
+		background-color: @flat-ui-midnight-blue;
+		border-radius: @chromaos-window-panel-border-radius @chromaos-window-panel-border-radius 0 0;
+		z-index: 2;
+		box-shadow: 0 0 5px @flat-ui-black-hole;
+
+		&-title {
+			display: none;
+			position: absolute;
+			height: @chromaos-window-panel-height;
+			line-height: @chromaos-window-panel-height;
+			left: 10px;
+			color: @flat-ui-clouds;
+		}
+
+		&-app-icon {
+			display: none;
+			height: @chromaos-window-panel-app-icon-height;
+			color: @flat-ui-clouds;
+			text-align: center;
+			line-height: @chromaos-window-panel-app-icon-height;
+			padding-top: ~"calc((@{chromaos-window-panel-height} - @{chromaos-window-panel-app-icon-height}) / 2)";
+
+		}
+
+		&-actions {
+			position: relative;
+			height: @chromaos-window-panel-height;
+			right: 0;
+			z-index: 2;
+			width: 110px;
+			float: right;
+		}
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+}
+@import "ChromaOSWindowPanelMacLike.less";
+@import "ChromaOSWindowPanelWindowsLike.less";

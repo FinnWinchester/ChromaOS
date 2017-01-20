@@ -1,0 +1,9 @@
+<div class="chromaos-contextual-menu">
+	<div class="chromaos-contextual-menu-header"></div>
+	<ul class="chromaos-contextual-menu-list" ng-repeat="menu in chromaosContextualMenu.menus">
+		<li class="chromaos-contextual-menu-list-item" ng-repeat="item in menu" ng-click="item.action();">
+			<i class="{{item.icon}}"></i> {{item.title}}
+		</li>
+	</ul>
+	<div class="chromaos-contextual-menu-footer"></div>
+</div>

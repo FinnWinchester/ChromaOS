@@ -1,0 +1,57 @@
+@chromaos-options-menu-border-radius: 2px;
+
+.chromaos-options-menu-wrapper {
+	&-button {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 28px;
+		margin: 10px;
+		font-size: 20px;
+		height: 28px;
+		text-align: center;
+
+		&:hover {
+			cursor: pointer;
+			border-radius: 999px;
+			background-color: fade(@flat-ui-midnight-blue, 25%);
+			transition: background-color 200ms ease-out;
+		}
+	}
+}
+
+.chromaos-options-menu {
+	width: 150px;
+	min-height: 50px;
+	background-color: white;
+	box-shadow: 0 2px 5px @flat-ui-wet-asphalt;
+	border-radius: @chromaos-options-menu-border-radius;
+	position: absolute;
+	right: 40px;
+	top: 10px;
+	transition: all 200ms ease-out;
+
+	&-menu {
+		margin-top: 10px;
+		margin-bottom: 10px;
+
+		&-title {
+			font-size: 12px;
+			padding-left: 10px;
+		}
+
+		&-option {
+			padding: 10px 10px 10px 15px;
+
+			&-disabled {
+				color: @flat-ui-silver;
+			}
+
+			&:not(&-disabled):hover {
+				background-color: fade(@flat-ui-midnight-blue, 10%);
+				transition: all 200ms ease-out;
+				cursor: pointer;
+			}
+		}
+	}
+}

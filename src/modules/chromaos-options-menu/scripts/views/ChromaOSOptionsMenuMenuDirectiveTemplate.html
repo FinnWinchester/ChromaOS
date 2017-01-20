@@ -1,0 +1,10 @@
+<div class="chromaos-options-menu">
+	<div class="chromaos-options-menu-menu" ng-repeat="menu in chromaosOptionsMenuMenu">
+		<div class="chromaos-options-menu-menu-title" ng-if="menu.title">
+			{{menu.title}}
+		</div>
+		<div class="chromaos-options-menu-menu-option" ng-repeat="option in menu.options" ng-class="{'chromaos-options-menu-menu-option-disabled': option.disabled}" ng-click="option.action(option);">
+			{{option.title}}
+		</div>
+	</div>
+</div>

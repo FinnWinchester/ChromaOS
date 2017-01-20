@@ -1,0 +1,41 @@
+{
+  "name": "chroma-os-core",
+  "version": "0.1.0",
+  "description": "AngularJS directives for ChromaOS.",
+  "main": "Gruntfile.js",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^1.0.2",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-less": "^1.4.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-html2js": "^0.3.6",
+    "grunt-ng-annotate": "^2.0.2"
+  },
+  "scripts": {
+    "test": "grunt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FinnWinchester/angular-clash-royale-button-directive.git"
+  },
+  "keywords": [
+    "clash",
+    "royale",
+    "button",
+    "angular",
+    "angularjs",
+    "directive"
+  ],
+  "author": "Finn Winchester",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FinnWinchester/angular-clash-royale-button-directive/issues"
+  },
+  "homepage": "https://github.com/FinnWinchester/angular-clash-royale-button-directive#readme",
+  "dependencies": {}
+}

@@ -1,0 +1,181 @@
+@chromaos-window-panel-height: 35px;
+@chromaos-window-panel-border-radius: 8px;
+
+.chromaos-window-panel-wrapper {
+	position: fixed !important;
+	top: 0;
+	left: 0;
+	z-index: 8;
+	left: 150px;
+	top: 50px;
+}
+
+.chromaos-window-panel {
+	height: 100%;
+	width: 100%;
+	top: 5px;
+	position: absolute;
+	box-shadow: 0 0 5px @flat-ui-black-hole;
+	border-radius: @chromaos-window-panel-border-radius;
+
+	&.focused {
+		z-index: 8;
+	}
+
+	&:not(.focused) {
+		.chromaos-window-panel-header {
+			background-color: fade(@flat-ui-midnight-blue, 80%);
+
+			.chromaos-window-panel-header-actions-windows-like-action {
+				opacity: 0.3;
+			}
+		}
+
+		.chromaos-window-panel-content {
+			opacity: 0.85;
+		}
+	}
+
+	&:not(.ui-resizable-resizing) {
+		transition: width 200ms ease-out;
+	}
+
+	&:not(&.minimized) {
+		// Doing this this way because TOP needs to be removed.
+		top: 150px;
+	}
+
+	&:not(&.half-screen) {
+		// Doing this this way because LEFT needs to be removed.
+		left: 5px;
+	}
+
+	&.minimized {
+		height: @chromaos-window-panel-height !important;
+		bottom: 0 !important;
+		left: 0 !important;
+		top: auto !important;
+		position: fixed;
+	}
+
+	&.minimized &-content {
+		height: 0 !important;
+		padding: 0;
+		top: auto;
+	}
+
+	&.collapsed {
+		height: @chromaos-window-panel-height !important;
+		border-radius: @chromaos-window-panel-border-radius @chromaos-window-panel-border-radius 0 0;
+	}
+
+	&.collapsed &-content {
+		height: 0 !important;
+		padding: 0;
+	}
+
+	&.full-screen {
+		position: absolute;
+		left: 5px !important;
+
+		&:not(.minimized) {
+			top: 5px !important;
+			width: ~"calc(100% - 10px)" !important;
+
+			&:not(.collapsed) {
+				height: ~"calc(100% - 10px)" !important;
+			}
+		}
+	}
+
+	&.full-screen &-content {
+		display: block;
+	}
+
+	&.half-screen {
+		top: 5px !important;
+		position: absolute;
+
+		&:not(.collapsed):not(.minimized) {
+			height: ~"calc(100% - 10px)" !important;
+			width: ~"calc(50% - 10px)" !important;
+		}
+	}
+
+	&.half-screen-left {
+		left: 5px !important;
+	}
+
+	&.half-screen-right {
+		left: auto !important;
+		right: 5px !important;
+	}
+
+	&.half-screen &-content {
+		display: block;
+	}
+
+	&-content {
+		z-index: 1;
+		background-color: fade(@flat-ui-clouds, 90%);
+		width: 100%;
+		border-radius: 0 0 @chromaos-window-panel-border-radius @chromaos-window-panel-border-radius;
+		overflow: auto;
+
+		&.borderless {
+			border-top-left-radius: @chromaos-window-panel-border-radius;
+			border-top-right-radius: @chromaos-window-panel-border-radius;
+			height: 100%;
+		}
+
+		&:not(.borderless) {
+			height: ~"calc(100% - 35px)";
+		}
+	}
+
+	&-header {
+		height: @chromaos-window-panel-height;
+		background-color: @flat-ui-midnight-blue;
+		border-radius: @chromaos-window-panel-border-radius @chromaos-window-panel-border-radius 0 0;
+		z-index: 2;
+
+		&-icon {
+			position: absolute;
+			height: @chromaos-window-panel-height;
+			line-height: @chromaos-window-panel-height;
+			left: 10px;
+			color: @flat-ui-clouds;
+		}
+
+		&-title {
+			position: absolute;
+			height: @chromaos-window-panel-height;
+			line-height: @chromaos-window-panel-height;
+			left: 35px;
+			color: @flat-ui-clouds;
+			.ellipsis-on-text-overflow(~  "calc(100% - 130px)");
+		}
+
+		&-actions {
+			position: absolute;
+			height: @chromaos-window-panel-height;
+			right: 0;
+			z-index: 2;
+			width: 110px;
+		}
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+}
+
+.ui-resizable-handle {
+	&.ui-resizable-e,
+	&.ui-resizable-s,
+	&.ui-resizable-se {
+		z-index: 1 !important;
+	}
+}
+@import "ChromaOSWindowPanelMacLike.less";
+@import "ChromaOSWindowPanelWindowsLike.less";

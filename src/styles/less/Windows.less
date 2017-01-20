@@ -1,0 +1,46 @@
+@unit: 100 / 12;
+
+.chromaos-generate-col (@i, @size) when (@i > 0) {
+	.chromaos-col-@{size} -@{i} {
+		@step: @unit * @i;
+		width: ~"@{step}%";
+		float: left;
+	}
+	.chromaos-generate-col(@i - 1, @size);
+}
+
+.chromaos-generate-col-container(@size) {
+	.chromaos-col-container {
+		width: @size;
+		margin: 0 auto;
+	}
+}
+
+.chromaos-row {
+	clear: both;
+}
+
+.chromaos-window-xs {
+	.chromaos-generate-col(12, xs);
+	.chromaos-generate-col-container(100%);
+}
+
+.chromaos-window-sm {
+	.chromaos-generate-col(12, sm);
+	.chromaos-generate-col-container(300px);
+}
+
+.chromaos-window-md {
+	.chromaos-generate-col(12, md);
+	.chromaos-generate-col-container(450px);
+}
+
+.chromaos-window-lg {
+	.chromaos-generate-col(12, lg);
+	.chromaos-generate-col-container(700px);
+}
+
+.chromaos-window-xl {
+	.chromaos-generate-col(12, xl);
+	.chromaos-generate-col-container(850px);
+}

@@ -1,0 +1,32 @@
+{
+  "name": "chroma-os-core",
+  "description": "AngularJS directives for ChromaOS.",
+  "main": "Gruntfile.js",
+  "version": "0.1.0",
+  "authors": [
+    "Finn Winchester"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "clash",
+    "royale",
+    "button",
+    "angular",
+    "angularjs",
+    "directive"
+  ],
+  "homepage": "https://github.com/FinnWinchester/angular-clash-royale-button-directive",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "jquery": "^3.1.1",
+    "jquery-ui": "^1.12.1",
+    "components-font-awesome": "^4.6.3",
+    "bootstrap": "v4.0.0-alpha.5"
+  }
+}

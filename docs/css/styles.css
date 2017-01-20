@@ -1,0 +1,11 @@
+html, body {
+  /*background: #2AC5D6;
+  background: -webkit-linear-gradient(left, #2AC5D6 30%, #59D799 70%);
+  background: -o-linear-gradient(left, #2AC5D6 30%, #59D799 70%);
+  background: -moz-linear-gradient(left, #2AC5D6 30%, #59D799 70%);
+  background: linear-gradient(left, #2AC5D6 30%, #59D799 70%);*/
+  background-image: url('../imgs/bg-1.jpg');
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
