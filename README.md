@@ -2,6 +2,8 @@
 
 ChromaOS made for AngularJS made by Finn Winchester. Currently under development.
 
+[Online demo](http://finnwinchester.github.io/ChromaOS).
+
 ### Installation
 Via Bower
 ```
