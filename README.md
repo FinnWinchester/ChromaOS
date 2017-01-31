@@ -77,11 +77,18 @@ The ```app``` can be retrieved with ```ChromaOSAppsService.findApp(appUniqueId);
 1. **'chromaos.window.fire.restore'**: Fire this event to make window go windowed (outside from minimized).
 1. **'chromaos.window.fire.collapse'**: Fire this event to make window go collapsed.
 1. **'chromaos.window.fire.expand'**: Fire this event to make window go windowed (outside from collapsed).
-2. **'chromaos.app.retitle'**: Fire this event to change the window's title. Params:
+2. **'chromaos.window.retitle'**: Fire this event to change the window's title. Params:
 	1. **title**: _String_. New title.
-3. **'chromaos.app.resize'**: Fire this event to resize the window (with JQuery UI Animate).
+	2. **append**: _Boolean_. Whether the _title_ should be appended to current title or just replaced.
+	3. **reset**: _Boolean_. Whether the _title_ should be replaced by the original's.
+3. **'chromaos.window.reicon'**: Fire this event to change the window's icon. Params:
+	1. **title**: _String_. New icon.
+	2. **reset**: _Boolean_. Whether the _icon_ should be replaced by the original's.
+4. **'chromaos.window.resize'**: Fire this event to resize the window (with JQuery UI Animate).
 	1. **size**: _JSON_. Accepting:
 		1. **width**: _Integer_. New width in PX.
 		2. **height**: _Integer_. New height in PX.
-4. **'chromaos.app.focus'**: Fire this event to focus the window.
-5. **'chromaos.app.close'**: Fire this event to close the window.
+5. **'chromaos.app.focus'**: Fire this event to focus the window.
+6. **'chromaos.app.close'**: Fire this event to close the window.
+7. **'chromaos.window.borderless'**: Fire this event to resize the window (with JQuery UI Animate).
+	1. **size**: _Boolean_. Whether the window has to be borderless or bordered.

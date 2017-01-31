@@ -38,25 +38,25 @@
       };*/
 
       $scope.changeTitle = function() {
-        $scope.$emit('chromaos.app.retitle', {
+        $scope.$emit('chromaos.window.retitle', {
           title: $scope.title
         });
       };
 
       $scope.resetTitle = function() {
-        $scope.$emit('chromaos.app.retitle', {
+        $scope.$emit('chromaos.window.retitle', {
           reset: true
         });
       };
 
       $scope.changeIcon = function(icon) {
-        $scope.$emit('chromaos.app.reicon', {
+        $scope.$emit('chromaos.window.reicon', {
           icon: icon
         });
       };
 
       $scope.resetIcon = function() {
-        $scope.$emit('chromaos.app.reicon', {
+        $scope.$emit('chromaos.window.reicon', {
           icon: ChromaOSAppsService.findApp('test-app').icon
         });
       };

@@ -122,7 +122,7 @@
         $controller.retitle(newTitle);
       };
 
-      $scope.$on('chromaos.app.retitle', function(e, args) {
+      $scope.$on('chromaos.window.retitle', function(e, args) {
         $timeout(function() {
           if (args.append) {
             $scope.windowTitle = $scope.windowTitle + ' - ' + args.title;
@@ -134,7 +134,7 @@
         }, 0);
       });
 
-      $scope.$on('chromaos.app.reicon', function(e, args) {
+      $scope.$on('chromaos.window.reicon', function(e, args) {
         $timeout(function() {
           if (args.reset) {
             $scope.windowIcon = originalIcon;
@@ -646,7 +646,7 @@
 
   angular.module('ChromaOS.Modules.WindowPanel')
 
-  .directive('chromaosWindowPanel', ChromaOSWindowPanelDirective);
+    .directive('chromaosWindowPanel', ChromaOSWindowPanelDirective);
 
   ChromaOSWindowPanelDirective.$inject = ['$rootScope', '$', '$timeout', 'ChromaOSAppsService', 'ChromaOSRelocationService', 'ChromaOSResponsivenessService', 'ChromaOSContextualMenuService'];
 })(window.angular);
