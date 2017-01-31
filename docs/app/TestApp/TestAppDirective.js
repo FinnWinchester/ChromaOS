@@ -61,6 +61,45 @@
         });
       };
 
+      $scope.fullscreen = function() {
+        $scope.$emit('chromaos.window.fire.full-screen', {});
+      };
+
+      $scope.restore = function() {
+        $scope.$emit('chromaos.window.fire.restore', {});
+      };
+
+      $scope.minimize = function() {
+        $scope.$emit('chromaos.window.fire.minimize', {});
+      };
+
+      $scope.windowed = function() {
+        $scope.$emit('chromaos.window.fire.windowed', {});
+      };
+
+      $scope.collapse = function() {
+        $scope.$emit('chromaos.window.fire.collapse', {});
+      };
+
+      $scope.expand = function() {
+        $scope.$emit('chromaos.window.fire.expand', {});
+      };
+
+      $scope.resize = function(width, height) {
+        $scope.$emit('chromaos.window.resize', {
+          size: {
+            width: width,
+            height: height
+          }
+        });
+      };
+
+      $scope.borderless = function(borderless) {
+        $scope.$emit('chromaos.window.borderless', {
+          borderless: borderless
+        });
+      };
+
     }
 
     var directive = {

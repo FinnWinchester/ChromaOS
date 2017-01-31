@@ -24,4 +24,40 @@
 		</button>
 		<button type="button" class="btn btn-default btn-sm" ng-click="resetIcon();">Reset it!</button>
 	</div>
+	<div class="col-xs-12" style="margin-top: 20px;">
+		<h4>Want to manipulate the window? Part I</h4>
+		<button type="button" class="btn btn-primary btn-sm" ng-click="fullscreen();">
+			Fullscreen it!
+		</button>
+		<button type="button" class="btn btn-primary btn-sm" ng-click="windowed();">
+			Window it!
+		</button>
+		<button type="button" class="btn btn-danger btn-sm" ng-click="minimize();">
+			Minimize it!
+		</button>
+		<button type="button" class="btn btn-warning btn-sm" ng-click="collapse();">
+			Collapse it!
+		</button>
+		<button type="button" class="btn btn-warning btn-sm" ng-click="expand();">
+			Expand it!
+		</button>
+		<button type="button" class="btn btn-success btn-sm" ng-click="borderless(true);">
+			Make it borderless!
+		</button>
+		<button type="button" class="btn btn-success btn-sm" ng-click="borderless(false);">
+			Make it bordered!
+		</button>
+	</div>
+	<div class="col-xs-12" style="margin-top: 20px;">
+		<h4>Want to manipulate the window? Part II</h4>
+		<button type="button" class="btn btn-primary btn-sm" ng-click="resize(150, 200);">
+			150x200 it!
+		</button>
+		<button type="button" class="btn btn-success btn-sm" ng-click="resize(250, 450);">
+			250x450 it!
+		</button>
+		<button type="button" class="btn btn-warning btn-sm" ng-click="resize(1000, 650);">
+			1000x650 it!
+		</button>
+	</div>
 </div>

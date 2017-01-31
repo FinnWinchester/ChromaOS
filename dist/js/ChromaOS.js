@@ -786,7 +786,7 @@
         }, 0);
       });
 
-      $scope.$on('chromaos.app.resize', function(e, args) {
+      $scope.$on('chromaos.window.resize', function(e, args) {
         var animateSettings = {
           height: '+' + (args.size.height) + '',
           width: '+' + (args.size.width) + ''
@@ -821,7 +821,7 @@
         $scope.dirty.message = args.message;
       });
 
-      $scope.$on('chromaos.window.header.border', function(e, args) {
+      $scope.$on('chromaos.window.borderless', function(e, args) {
         $controller.setBorderless(args.borderless);
       });
 
