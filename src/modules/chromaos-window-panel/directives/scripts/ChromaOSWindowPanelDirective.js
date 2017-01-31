@@ -6,7 +6,8 @@
     var ChromaOSWindowPanelClass = '.chromaos-window-panel';
 
     function ChromaOSWindowPanelDirectiveLink($scope, $element, $attrs, $controller) {
-      var originalTitle = $scope.title;
+      var originalTitle = $scope.windowTitle;
+      var originalIcon = $scope.windowIcon;
       var ChromaOSWindowPanelElement = $($element).find(ChromaOSWindowPanelClass);
       var defaultWidth = '400px';
       var defaultHeight = '400px';
@@ -124,11 +125,22 @@
       $scope.$on('chromaos.app.retitle', function(e, args) {
         $timeout(function() {
           if (args.append) {
-            $scope.title = $scope.title + ' - ' + args.title;
+            $scope.windowTitle = $scope.windowTitle + ' - ' + args.title;
           } else if (args.reset) {
-            $scope.title = originalTitle;
+            $scope.windowTitle = originalTitle;
           } else {
-            $scope.title = args.title;
+            $scope.windowTitle = args.title;
+          }
+        }, 0);
+      });
+
+      $scope.$on('chromaos.app.reicon', function(e, args) {
+        $timeout(function() {
+          console.log(args);
+          if (args.reset) {
+            $scope.windowIcon = originalIcon;
+          } else {
+            $scope.windowIcon = args.icon;
           }
         }, 0);
       });
@@ -570,7 +582,7 @@
       };
 
       this.retitle = function(newTitle) {
-        $scope.title = newTitle;
+        $scope.windowTitle = newTitle;
       };
 
       this.$init = function() {
@@ -621,8 +633,8 @@
       restrict: 'EA',
       scope: {
         tpl: '@',
-        title: '@',
-        appIcon: '@',
+        windowTitle: '@',
+        windowIcon: '@',
         appId: '@'
       },
       templateUrl: 'modules/chromaos-window-panel/directives/views/ChromaOSWindowPanelDirectiveTemplate.html',

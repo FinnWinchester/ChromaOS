@@ -4,9 +4,8 @@
     ChromaOSAppsService.register({
       id: 'shopping-app',
       name: 'Shopping App',
-      icon: 'fa fa-shopping-cart',
+      icon: 'fa fa-shopping-cart fa-fw',
       template: '<div shopping-app></div>',
-      launcher: true,
       config: {
         behavior: {
           resizable: true, // true/false
@@ -20,9 +19,10 @@
           width: '550px', // px
           height: '500px', // px
         },
-        borderless: true,
-        fullscreen: true,
-        startAt: 6
+        borderless: false,
+        fullscreen: false,
+        startAt: 9,
+        autostart: true
       }
     });
   }
@@ -55,12 +55,6 @@
           $scope.units = '';
           $scope.unitaryPrice = '';
         }
-      };
-
-      $scope.makeIt = function(what) {
-        $scope.$emit('chromaos.window.header.border', {
-          borderless: what
-        });
       };
     }
 

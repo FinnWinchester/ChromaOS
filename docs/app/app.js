@@ -4,6 +4,12 @@ angular.module('myapp', ['ChromaOS'])
   $scope.contextualMenu = {
     menus: [
       [{
+        icon: ChromaOSAppsService.findApp('test-app').icon,
+        title: ChromaOSAppsService.findApp('test-app').name,
+        action: function() {
+          ChromaOSAppsService.openApp(ChromaOSAppsService.findApp('test-app'));
+        }
+      }, {
         icon: ChromaOSAppsService.findApp('shopping-app').icon,
         title: ChromaOSAppsService.findApp('shopping-app').name,
         action: function() {

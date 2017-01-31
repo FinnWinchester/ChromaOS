@@ -55,7 +55,11 @@
 
   function ChromaOSAppsService($compile, $rootScope, $) {
 
-    var appWindowPanelWrapper = '<div chromaos-window-panel tpl="__app_tpl__" title="__app_title__" app-id="__app_id__" app-icon="__app_icon__"></div>';
+    var params = {
+
+    };
+
+    var appWindowPanelWrapper = '<div chromaos-window-panel tpl="__app_tpl__" window-title="__app_title__" app-id="__app_id__" window-icon="__app_icon__"></div>';
     var openedApps = [];
     var registeredApps = [];
     var defaultAppendTo = '.chromaos-desktop';
@@ -644,7 +648,8 @@
     var ChromaOSWindowPanelClass = '.chromaos-window-panel';
 
     function ChromaOSWindowPanelDirectiveLink($scope, $element, $attrs, $controller) {
-      var originalTitle = $scope.title;
+      var originalTitle = $scope.windowTitle;
+      var originalIcon = $scope.windowIcon;
       var ChromaOSWindowPanelElement = $($element).find(ChromaOSWindowPanelClass);
       var defaultWidth = '400px';
       var defaultHeight = '400px';
@@ -762,11 +767,21 @@
       $scope.$on('chromaos.app.retitle', function(e, args) {
         $timeout(function() {
           if (args.append) {
-            $scope.title = $scope.title + ' - ' + args.title;
+            $scope.windowTitle = $scope.windowTitle + ' - ' + args.title;
           } else if (args.reset) {
-            $scope.title = originalTitle;
+            $scope.windowTitle = originalTitle;
           } else {
-            $scope.title = args.title;
+            $scope.windowTitle = args.title;
+          }
+        }, 0);
+      });
+
+      $scope.$on('chromaos.app.reicon', function(e, args) {
+        $timeout(function() {
+          if (args.reset) {
+            $scope.windowIcon = originalIcon;
+          } else {
+            $scope.windowIcon = args.icon;
           }
         }, 0);
       });
@@ -1208,7 +1223,7 @@
       };
 
       this.retitle = function(newTitle) {
-        $scope.title = newTitle;
+        $scope.windowTitle = newTitle;
       };
 
       this.$init = function() {
@@ -1259,8 +1274,8 @@
       restrict: 'EA',
       scope: {
         tpl: '@',
-        title: '@',
-        appIcon: '@',
+        windowTitle: '@',
+        windowIcon: '@',
         appId: '@'
       },
       templateUrl: 'modules/chromaos-window-panel/directives/views/ChromaOSWindowPanelDirectiveTemplate.html',
@@ -1326,13 +1341,13 @@ angular.module("modules/chromaos-window-panel/directives/views/ChromaOSWindowPan
 
 angular.module("modules/chromaos-window-panel/directives/views/ChromaOSWindowPanelDirectiveTemplate.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("modules/chromaos-window-panel/directives/views/ChromaOSWindowPanelDirectiveTemplate.html",
-    "<div class=\"chromaos-window-panel\" data-app-id=\"{{appId}}\" ng-class=\"windowPanelClassesConfig\">\n" +
+    "<div class=\"chromaos-window-panel\" data-app-id=\"{{windowId}}\" ng-class=\"windowPanelClassesConfig\">\n" +
     "	<div class=\"chromaos-window-panel-header\" chromaos-contextual-menu=\"chromaosContextualMenuConfig\" ng-show=\"!isBorderless();\">\n" +
     "		<div class=\"chromaos-window-panel-header-icon\">\n" +
-    "			<i class=\"{{appIcon}} fa-fw\"></i>\n" +
+    "			<i class=\"{{windowIcon}}\"></i>\n" +
     "		</div>\n" +
     "		<div class=\"chromaos-window-panel-header-title\">\n" +
-    "			{{title}}\n" +
+    "			{{windowTitle}}\n" +
     "		</div>\n" +
     "		<div class=\"chromaos-window-panel-header-actions chromaos-window-panel-header-actions-{{windowPanel.style}}\">\n" +
     "			<div ng-repeat=\"windowPanelAction in windowPanel.options\" class=\"chromaos-window-panel-header-actions-{{windowPanel.style}}-action chromaos-window-panel-header-actions-{{windowPanel.style}}-{{windowPanelAction.className}}\" ng-click=\"windowPanelAction.action();\">\n" +

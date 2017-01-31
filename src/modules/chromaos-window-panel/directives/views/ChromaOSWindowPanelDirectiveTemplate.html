@@ -1,10 +1,10 @@
-<div class="chromaos-window-panel" data-app-id="{{appId}}" ng-class="windowPanelClassesConfig">
+<div class="chromaos-window-panel" data-app-id="{{windowId}}" ng-class="windowPanelClassesConfig">
 	<div class="chromaos-window-panel-header" chromaos-contextual-menu="chromaosContextualMenuConfig" ng-show="!isBorderless();">
 		<div class="chromaos-window-panel-header-icon">
-			<i class="{{appIcon}} fa-fw"></i>
+			<i class="{{windowIcon}}"></i>
 		</div>
 		<div class="chromaos-window-panel-header-title">
-			{{title}}
+			{{windowTitle}}
 		</div>
 		<div class="chromaos-window-panel-header-actions chromaos-window-panel-header-actions-{{windowPanel.style}}">
 			<div ng-repeat="windowPanelAction in windowPanel.options" class="chromaos-window-panel-header-actions-{{windowPanel.style}}-action chromaos-window-panel-header-actions-{{windowPanel.style}}-{{windowPanelAction.className}}" ng-click="windowPanelAction.action();">

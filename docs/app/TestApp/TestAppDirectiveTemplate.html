@@ -1,0 +1,27 @@
+<div>
+	<div class="col-xs-12">
+		<h2>Test app</h2>
+	</div>
+	<div class="col-xs-12" style="margin-top: 20px;">
+		<h4>Want to change the title?</h4>
+		<input class="form-control" ng-model="title" placeholder="New title" />
+		<button type="button" class="btn btn-primary btn-sm" ng-click="changeTitle();">Change it!</button>
+		<button type="button" class="btn btn-default btn-sm" ng-click="resetTitle();">Reset it!</button>
+	</div>
+	<div class="col-xs-12" style="margin-top: 20px;">
+		<h4>Want to change the icon?</h4>
+		<button type="button" class="btn btn-primary btn-sm" ng-click="changeIcon('fa fa-home');">
+			Change it! <i class="fa fa-home"></i>
+		</button>
+		<button type="button" class="btn btn-success btn-sm" ng-click="changeIcon('fa fa-user');">
+			Change it! <i class="fa fa-user"></i>
+		</button>
+		<button type="button" class="btn btn-warning btn-sm" ng-click="changeIcon('fa fa-exclamation-triangle');">
+			Change it! <i class="fa fa-exclamation-triangle"></i>
+		</button>
+		<button type="button" class="btn btn-danger btn-sm" ng-click="changeIcon('fa fa-times');">
+			Change it! <i class="fa fa-times"></i>
+		</button>
+		<button type="button" class="btn btn-default btn-sm" ng-click="resetIcon();">Reset it!</button>
+	</div>
+</div>

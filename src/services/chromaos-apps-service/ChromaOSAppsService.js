@@ -3,7 +3,11 @@
 
   function ChromaOSAppsService($compile, $rootScope, $) {
 
-    var appWindowPanelWrapper = '<div chromaos-window-panel tpl="__app_tpl__" title="__app_title__" app-id="__app_id__" app-icon="__app_icon__"></div>';
+    var params = {
+
+    };
+
+    var appWindowPanelWrapper = '<div chromaos-window-panel tpl="__app_tpl__" window-title="__app_title__" app-id="__app_id__" window-icon="__app_icon__"></div>';
     var openedApps = [];
     var registeredApps = [];
     var defaultAppendTo = '.chromaos-desktop';
