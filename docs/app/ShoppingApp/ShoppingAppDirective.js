@@ -37,9 +37,7 @@
       };
 
       $scope.createElement = function() {
-        if (isNaN($scope.units) || isNaN($scope.unitaryPrice)) {
-
-        } else {
+        if ((!isNaN($scope.units) || !isNaN($scope.unitaryPrice)) && $scope.name !== '') {
           addElement({
             name: $scope.name,
             units: $scope.units,
@@ -54,6 +52,8 @@
           $scope.name = '';
           $scope.units = '';
           $scope.unitaryPrice = '';
+        } else {
+          // Show alert (?)
         }
       };
     }
@@ -71,9 +71,9 @@
 
   angular.module('myapp')
 
-  .directive('shoppingApp', ShoppingAppDirective)
+    .directive('shoppingApp', ShoppingAppDirective)
 
-  .run(runFunction);
+    .run(runFunction);
 
   // ShoppingAppDirective.$inject = ['$scope'];
   runFunction.$inject = ['ChromaOSAppsService'];
